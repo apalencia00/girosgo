@@ -1,0 +1,60 @@
+{
+  "_from": "fitatu-cordova-plugin-whitelist",
+  "_id": "fitatu-cordova-plugin-whitelist@1.2.2",
+  "_inBundle": false,
+  "_integrity": "sha512-BSBTILEr2QxAY9MZawI36AGGShY0h463vz3k2vHEeY8PEaYBbYfxdvYXNalMyxWRsZfaYmNh7C4lfLnl68GzZw==",
+  "_location": "/fitatu-cordova-plugin-whitelist",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "fitatu-cordova-plugin-whitelist",
+    "name": "fitatu-cordova-plugin-whitelist",
+    "escapedName": "fitatu-cordova-plugin-whitelist",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/fitatu-cordova-plugin-whitelist/-/fitatu-cordova-plugin-whitelist-1.2.2.tgz",
+  "_shasum": "7f04ba11cc661ee5c9fb3516eba11252a123bd01",
+  "_spec": "fitatu-cordova-plugin-whitelist",
+  "_where": "C:\\Users\\Andres\\Documents\\Documentos\\angular-project\\com.girosgo.domi",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://github.com/apache/cordova-plugin-whitelist/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Whitelist Plugin",
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=4.0.0"
+    }
+  ],
+  "homepage": "https://github.com/apache/cordova-plugin-whitelist#readme",
+  "keywords": [
+    "cordova",
+    "whitelist",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0",
+  "name": "fitatu-cordova-plugin-whitelist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-whitelist.git"
+  },
+  "version": "1.2.2"
+}

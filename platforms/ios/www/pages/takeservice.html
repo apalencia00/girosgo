@@ -1,0 +1,85 @@
+<template>
+<div class="page" data-name="form">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Back</span>
+          </a>
+        </div>
+        <div class="title">Cierre De Servicio</div>
+      </div>
+    </div>
+    <div class="page-content">
+     <!--  <div class="block-title">Respuesta de Servicio</div> -->
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">                                                                                                                </div>
+                <div class="item-input-wrap">
+                  <input type="text" id="id_num_servicio" placeholder="# de servicio" value="{{data}}" />
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+           
+          </li>
+          <li class="align-top">
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Descripcion</div>
+                <div class="item-input-wrap">
+                  <textarea id="descripcion" placeholder="Observacion del Servicio"></textarea>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Estado Sin Servicio</div>
+                <div class="item-input-wrap">
+                  <select id="estado_servicio" > 
+                    
+                    <option value="N/A" >Seleccione</option>
+                
+                    <option value="F" >Finalizado</option>
+                    
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+          </li>
+          
+
+          
+                  
+        </ul>
+      </div>
+     
+
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <a href="#" class="link">Cancelar</a>
+          <a href="/cerrarservicio/" id="aceptar" class="link">Aceptar</a>
+        </div>
+      </div>
+    
+  
+       <!--  <p class="row">
+          <a href="#" class="col button button-large button-fill button-raised color-red">Cancelar </a>
+          <a href="/cerrarservicio/" class="col button button-large button-fill button-raised color-green">Guardar</a>
+        </p> -->
+  
+      </div>
+
+
+    </div>
+  
+  </template>

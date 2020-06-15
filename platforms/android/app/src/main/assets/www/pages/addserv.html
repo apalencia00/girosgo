@@ -1,0 +1,99 @@
+<template>
+    <div class="page" data-name="addserv">
+        <div class="navbar">
+          <div class="navbar-inner sliding">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title">Registro de Servicio</div>
+          </div>
+        </div>
+        <div class="page-content">
+         <!--  <div class="block-title">Respuesta de Servicio</div> -->
+          <div class="list no-hairlines-md">
+            <ul>
+              <li>
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">                                                                                                                </div>
+                    <div class="item-title item-label">Tipo Solicitante</div>
+                      <select id="tiposol" >
+
+                        <option value="0" >Seleccine opcion</option>
+                        <option value="1" >Vendedor</option>
+                        <option value="2" >Lider</option>
+                        <option value="3" >Administrativo</option>
+
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+               
+              </li>
+              <li class="align-top">
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Identificacion</div>
+                    <div class="item-input-wrap">
+                        <input type="text" id="identificacion" placeholder="Numero de Identificacion"/>
+                    </div>
+                  </div>
+                </div>
+              </li>
+    
+              <li class="align-top">
+                <div class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Nombre</div>
+                    <div class="item-input-wrap">
+                        <input type="text" id="identificacion" placeholder="Numero de Identificacion"/>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+                           
+              <li>
+                  <div class="item-content item-input">
+                      <div class="item-inner">
+                        <div class="item-title item-label">Seleccione Su Problema </div>
+                        <div class="item-input-wrap">
+                          <select id="asunto" > 
+                            
+                            <option value="0" >Seleccione</option>
+                            <option value="1" >Problemas De Conexion Internet</option>
+                            <option value="2" >Problemas de Software</option>
+                            <option value="3" >Problemas de Equipo</option>
+                            <option value="4" >Problemas con Camaras de Seguridad</option>
+                            <option value="5" >Problemas de Electricidad</option>
+
+                            
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+              </li>
+    
+          
+    
+            </ul>
+          </div>
+         
+      
+            <p class="row">
+              <a href="#" class="col button button-large button-fill button-raised color-red">Cancelar </a>
+              <a href="/guardarserv/" class="col button button-large button-fill button-raised color-green">Guardar</a>
+            </p>
+      
+          </div>
+    
+    
+        </div>
+      
+      </template>

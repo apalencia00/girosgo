@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "44726765681",
+    "firebase_url": "https://helpdesk-fe8b4.firebaseio.com",
+    "project_id": "helpdesk-fe8b4",
+    "storage_bucket": "helpdesk-fe8b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44726765681:android:cc0040289a4f9a35ecb3d0",
+        "android_client_info": {
+          "package_name": "com.develop.appservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44726765681-avkss7ljfo6jd9dpjbb9gevljnm7scml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPtE6eJs6XkXy3DUxquip8e7ARV6he4bk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44726765681-avkss7ljfo6jd9dpjbb9gevljnm7scml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

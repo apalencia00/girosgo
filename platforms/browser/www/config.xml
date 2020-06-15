@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.girosgo.domi" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>DomiReady</name>
+    <icon density="mdpi" height="57" platform="ios" src="www/res/ready.png" width="57" />
+    <description>
+        DomiReady
+    </description>
+    <author email="palencia89@gmail.com" href="http://cordova.io">
+        Andres Palencia Florez
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="*" />
+    <access origin="https://*" />
+    <access origin="http://*" />
+    <access origin="http://sockjs.pusher.com" />
+    <access origin="https://google.com" />
+    <access origin="http://maps.google.com" />
+    <access origin="http://*.google.com" />
+    <access origin="content:///*" />
+    <access origin="*" />
+    <allow-navigation href="http://*" />
+    <allow-navigation href="https://*" />
+</widget>

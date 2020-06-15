@@ -1,0 +1,64 @@
+{
+  "name": "domigo",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "cordova-android": "^8.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.0.1",
+    "cordova-plugin-badge": "^0.8.8",
+    "cordova-plugin-barcodescanner": "^0.7.4",
+    "cordova-plugin-camera": "^4.1.0",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-local-notification": "^0.9.0-beta.2",
+    "cordova-plugin-qr-barcode-scanner": "^8.0.3",
+    "cordova-plugin-splashscreen": "^5.0.3",
+    "fitatu-cordova-plugin-whitelist": "^1.2.2",
+    "framework7": "^5.7.1",
+    "jquery": "^3.5.1",
+    "pusher": "^3.0.1",
+    "reload": "^3.0.4",
+    "socket.io-client": "^2.3.0"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-qr-barcode-scanner": {},
+      "cordova-plugin-barcodescanner": {},
+      "cordova-plugin-local-notification": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "phonegap-plugin-push": {
+        "SENDER_ID": "helpdesk-fe8b4",
+        "ANDROID_SUPPORT_V13_VERSION": "27.+",
+        "FCM_VERSION": "17.0.+"
+      },
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-geolocation": {}
+    },
+    "platforms": [
+      "browser",
+      "android",
+      "ios"
+    ]
+  },
+  "devDependencies": {
+    "phonegap-plugin-barcodescanner": "~8.1.0",
+    "phonegap-plugin-push": "~2.3.0"
+  }
+}

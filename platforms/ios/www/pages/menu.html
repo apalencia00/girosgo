@@ -1,0 +1,166 @@
+
+<template>
+
+ 
+  <div class="page" data-name="menu">  
+
+      <!-- Views/Tabs container -->
+      <div class="views tabs">
+
+        
+        <!--
+          Tabbar for switching views-tabs. Should be a first child in Views.
+          Additional "toolbar-bottom" class to set it on bottom
+        -->
+        <div class="toolbar tabbar toolbar-bottom">
+          <div class="toolbar-inner">
+            <a href="#view-home" class="tab-link tab-link-active">
+              <i class="f7-icons">home</i>
+            </a>
+            <a href="#view-catalog" class="tab-link">
+              <i class="f7-icons">list</i>
+            </a>
+            <a href="#view-settings" class="tab-link">
+              <i class="f7-icons">money_dollar_circle_fill</i>
+            </a>
+          </div>
+        </div>
+        <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+        <div id="view-home" class="view view-main tab tab-active">
+
+          <div class="toolbar toolbar-top">
+            <div class="toolbar-inner">
+                <a href="#" class="link">
+
+                  <img src="res/baseline_menu_black_18dp.png" />
+                </a>
+             
+            </div>
+          </div>
+          
+          
+            <div class="page-content">
+
+
+        
+          
+                  <div class="data-table data-table-init card">
+
+                          <div class="card-header">
+                            
+                            
+                            <p style="font-size: small; color: #007aff" >Servicios &nbsp;&nbsp; </p> <div id="cantidad" >  </div>&nbsp;&nbsp;
+                            
+                            <p style="font-size: small; color: #007aff" >Total Servicios &nbsp;&nbsp; </p> <div id="total"    >   </div>
+                          
+                            
+                            <div class="data-table-actions">
+                              <a href="/update" class="link icon-only">
+                                <i class="icon material-icons md-only"> <img src="res/refresh.png" width="25" height="25" /></i>
+                              </a>
+                            
+                            </div>
+                          </div>
+               
+                                    <div class="card-content">
+                                      <table id="tablaid" >
+                                        <thead>
+                                          <tr>
+                                          
+                                          
+                                          </tr>
+                                        </thead>
+                                        <tbody id="tbody" >
+                                                        
+                                        </tbody>
+                                      </table>
+                                    </div>
+                 </div>
+    
+              
+          
+           
+            </div>
+      
+
+        </div>
+  
+        <!-- Catalog View -->
+        <div id="view-catalog" class="view tab">
+
+          
+          <div class="toolbar toolbar-top">
+            <div class="toolbar-inner">
+                <a href="#" class="link">
+
+                  <img src="res/baseline_menu_black_18dp.png" />
+                </a>
+             
+            </div>
+          </div>
+
+          <div class="page-content">
+        
+          
+            <div class="data-table data-table-init card">
+
+                    <div class="card-header">
+                      
+                      
+                      <p style="font-size: small; color: #007aff" >Servicios &nbsp;&nbsp; </p> <div id="cantidad" >  </div>&nbsp;&nbsp;
+                      
+                      <p style="font-size: small; color: #007aff" >Total Servicios &nbsp;&nbsp; </p> <div id="total"    >   </div>
+                    
+                      
+                      <div class="data-table-actions">
+                        <a href="/update" class="link icon-only">
+                          <i class="icon material-icons md-only"> <img src="res/refresh.png" width="25" height="25" /></i>
+                        </a>
+                      
+                      </div>
+                    </div>
+         
+                              <div class="card-content">
+                                <table id="tablaid" >
+                                  <thead>
+                                    <tr>
+                                    
+                                    
+                                    </tr>
+                                  </thead>
+                                  <tbody id="tbody_historial" >
+                                                  
+                                  </tbody>
+                                </table>
+                              </div>
+           </div>
+
+        
+    
+     
+      </div>
+
+
+        </div>
+  
+        <!-- Settings View -->
+        <div id="view-settings" class="view tab">
+
+          <div class="toolbar toolbar-top">
+            <div class="toolbar-inner">
+                <a href="#" class="link">
+
+                  <img src="res/baseline_menu_black_18dp.png" />
+                </a>
+             
+            </div>
+          </div>
+          ...
+        </div>
+      </div>
+    </div>
+ 
+      
+      </template>
+
+

@@ -1,0 +1,9 @@
+{
+    "libiconv.dylib": 1,
+    "AVFoundation.framework": 2,
+    "CoreVideo.framework": 1,
+    "QuartzCore.framework": 1,
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 3,
+    "UserNotifications.framework": 1
+}

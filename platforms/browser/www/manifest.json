@@ -1,0 +1,1 @@
+{"background_color":"#FFF","display":"standalone","name":"DomiReady","short_name":"DomiReady","version":"com.girosgo.domi","description":"DomiReady","author":"Andres Palencia Florez","icons":[{"src":"www/res/ready.png","type":"image/png","sizes":"57x57"}],"start_url":"index.html","theme_color":"#E6E6E6","gcm_sender_id":"996231231186"}

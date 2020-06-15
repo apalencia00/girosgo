@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#E6E6E6">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>ServiceApp</title>
+
+  <link   rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/framework7-icons.css">
+  <link rel="stylesheet" href="css/framework7.bundle.min.css">
+  
+  
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<style>
+
+
+.demo-card-header-pic .card-header {
+  height: 40vw;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.demo-card-header-pic .card-content-padding .date{
+  color: #8e8e93;
+}
+
+</style>
+
+
+
+<body>
+
+
+
+
+  <div id="myapp">
+    
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+    <!-- Left panel with cover effect-->
+    <div class="panel panel-left panel-cover">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Opciones</div>
+
+            </div>
+          </div>
+          <div class="page-content">
+              <div class="block color-red"><a href="/settings/" class="panel-close" ><strong>Conexiones</strong></a></div>
+              <div class="block color-red"><a href="/base/" class="panel-close" ><strong>Base Pendiente</strong></a></div>
+              <div class="block color-red"><a href="/ahorro/" class="panel-close" ><strong>Ahorros</strong></a></div>
+              <div class="block color-red"><a href="/salir/" class="panel-close" ><strong>Cerrar Sesion</strong></a></div>
+            </div>
+        
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main safe-areas">
+      <!-- Page, data-name contains page name which can be used in callbacks -->
+      <div class="page" data-name="home">
+        <!-- Top Navbar -->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                  <img src="res/baseline_menu_black_18dp.png" />
+              </a>
+            </div>
+            <div class="title sliding"></div>
+           
+          </div>
+        </div>
+     
+          <br>
+          <br>
+          <br>
+                           
+              <div class="list no-hairlines-md">
+                <div>
+                  <img src="res/ready.png" class="center"/>
+                </div>
+
+                <br>
+                <br>
+                <ul>
+                  <li class="item-content item-input">
+                    <div class="item-media">
+                      <i class="icon demo-list-icon"></i>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label color-red">Usuario</div>
+                      <div class="item-input-wrap color-red">
+                        <input type="text" id="username" value="" placeholder="Ingrese su Usuario">
+                        <span class="input-clear-button color-red"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-media">
+                      <i class="icon demo-list-icon"></i>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label color-red">Clave</div>
+                      <div class="item-input-wrap color-red">
+                        <input type="text" id="password" value="" placeholder="Ingrese su Contraseña">
+                        <span class="input-clear-button color-red"></span>
+                      </div>
+                    </div>
+                  </li>
+                
+      
+                </ul>
+                
+              </div>
+
+              <br>
+
+              <div class="block block-strong">
+       
+                <div class="row">
+                  <a href="/login/" class="item-link col button color-red">Ingresar</a>
+                  
+                 
+                </div>
+                
+                
+                
+                <div class="block-footer"><center>Todos Los Derechos Reservados <br>@2018 - 2019 - Andres F. Palencia</center></div>
+          
+              </div>
+             
+              
+          
+
+        
+
+      </div>
+    </div>
+
+    
+
+    <!-- Popup -->
+
+
+  
+  </div>
+       
+  <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
+  
+  <script src="cordova.js"></script>
+
+  <script src="js/socket.io.js" ></script>
+
+
+  <!-- Framework7 library -->
+  <script src="js/jquery.js" ></script>
+
+  <script src="js/framework7.bundle.min.js"></script>
+  
+  <script src="js/pusher.js" ></script>
+  <script src="js/config.js"></script>
+  
+
+  <script src="js/index.js"></script>
+
+
+  <!-- Your custom app scripts -->
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5Y9ntrmD_NPPatiUbRsCxz0gpa55Oo4M">
+  </script>
+
+  
+
+  <script>
+
+        app.initialize();
+
+  </script>
+
+</body>
+</html>

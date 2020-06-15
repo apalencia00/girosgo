@@ -1,0 +1,46 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-barcodescanner": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "cordova-plugin-qr-barcode-scanner": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "phonegap-plugin-push": {
+      "PACKAGE_NAME": "com.girosgo.domi"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.girosgo.domi"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.girosgo.domi"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "DomiGo"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "DomiGo"
+    }
+  }
+}
