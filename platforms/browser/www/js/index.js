@@ -1,11 +1,10 @@
 
-// Recursos a Conexiones -- Servicios REST
 
 var conexion ={
 
   hostconexion: 'http://ec2-18-191-168-53.us-east-2.compute.amazonaws.com',
   portconexion: '80',
-  rootconexion : '',
+  rootconexion : 'domiready',
   timeconexion: '3600'
 
 }
@@ -28,13 +27,13 @@ if ( ip != null && puerto != null ) {
   x.portconexion = puerto;
   x.rootconexion = '';
   x.timeconexion = '3600';
-  URL_GLOBAL = x.hostconexion+':'+x.portconexion+'/'+x.rootconexion;
+  URL_GLOBAL = x.hostconexion;
   
 } 
 else {
   console.log("2");
   console.log(conexion.hostconexion);
-  URL_GLOBAL = conexion.hostconexion+':'+conexion.portconexion+'/'+conexion.rootconexion;
+  URL_GLOBAL = conexion.hostconexion;
   //window.location.reload();
 
 }
@@ -88,7 +87,7 @@ navigator.geolocation.getCurrentPosition( onSuccess, onError,{ maximumAge: 3000,
 
 
 
- var watchID = navigator.geolocation.watchPosition(onSuccessrednder, onError, { timeout: 3000 });
+ var watchID = navigator.geolocation.watchPosition(onSuccessrednder, onError, { timeout: 60000 });
   
       var pos = {
           lat: "",
@@ -206,21 +205,7 @@ $$(document).on('page:init','.page[data-name="menu"]',function(data) {
               html+= '<div class="card-footer color-red"><a href="#" class="link"></a><a href="/service/'+arr_datos[i].num_servicio+'/" class="link color-red">Aceptar</a></div>';
               html+= '</div>';
 
-/*               html+= '<div id="micarta" class="card text-center">';
-              html+= '<div class="card-header">';
-              html+= '  N. Servicio :  '+arr_datos[i].num_servicio+'';
-              html+= '</div>';
-              html+= '<div class="card-body">';
-              html+= '<h5 class="card-title">Total : '+arr_datos[i].totalt+'</h5>';
-              html+= '<p class="card-text"> Origen : '+arr_datos[i].dir_proc+'</p>'+ '<br>' + 'Destino :' +arr_datos[i].dir_dest+ '';
-              
-              html+= '</div>';
-              html+= '<div class="card-footer text-muted">';
-         
-              html+= '<a href="/service/'+arr_datos[i].num_servicio+'/" class="col button button-small button-outline color-red">Aceptar</a>';
-              html+= '</div>';
-              
-              html+= '</div>'; */
+
 
               total = total + parseInt(arr_datos[i].totalt);
 
@@ -394,6 +379,8 @@ var myapp = new Framework7({
               var username = $$('#username').val();
               var password = $$('#password').val(); 
 
+              alert(SERVICIO_AUTENTICACION);
+
               myapp.preloader.show();
 
             setTimeout(function () {
@@ -413,7 +400,7 @@ var myapp = new Framework7({
                     
                     userIsLoggedIn = true;
                     localStorage.setItem("doc",info[0].usuadoc);
-                    console.log("!!!!!!!!!!!!!!!!!!!"+info[0].usuadoc);
+                    alert("!!!!!!!!!!!!!!!!!!!"+info[0].usuadoc);
                     localStorage.setItem("iduser",info[0].id_usurio);
                     console.log(info[0].usuanomb_completo);
                     localStorage.setItem("nombs", info[0].usuanomb_completo);

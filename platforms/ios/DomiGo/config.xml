@@ -37,13 +37,13 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
-    <name>DomiGo</name>
-    <icon density="mdpi" height="57" platform="ios" src="www/res/DOMICLIO EXPRES-01.png" width="57" />
+    <name>DomiReady</name>
+    <icon density="mdpi" height="57" platform="ios" src="www/res/ready.png" width="57" />
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        DomiReady
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="palencia89@gmail.com" href="http://cordova.io">
+        Andres Palencia Florez
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
@@ -52,12 +52,8 @@
     <allow-intent href="tel:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="*" />
-    <access origin="http://google.com" />
-    <access origin="http://pusher.com" />
-    <access origin="ws://ws.pusherapp.com" />
-    <access origin="https://js.pusher.com/6.0/pusher.min.js" />
-    <access origin="wss://ws-us2.pusher.com:443" />
-    <access origin="" />
+    <access origin="https://*" />
+    <access origin="http://*" />
     <access origin="http://sockjs.pusher.com" />
     <access origin="https://google.com" />
     <access origin="http://maps.google.com" />

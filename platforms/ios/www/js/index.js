@@ -3,9 +3,9 @@
 
 var conexion ={
 
-  hostconexion: 'http://192.168.0.13',
+  hostconexion: '',
   portconexion: '80',
-  rootconexion : 'domiready',
+  rootconexion : '',
   timeconexion: '3600'
 
 }
@@ -26,7 +26,7 @@ if ( ip != null && puerto != null ) {
   var x = conexion;
   x.hostconexion = ip;
   x.portconexion = puerto;
-  x.rootconexion = 'AppHelpU';
+  x.rootconexion = '';
   x.timeconexion = '3600';
   URL_GLOBAL = x.hostconexion+':'+x.portconexion+'/'+x.rootconexion;
   
@@ -39,25 +39,56 @@ else {
 
 }
 
-var SERVICIO_AUTENTICACION   =  URL_GLOBAL+'/api/rest/login_movil_app.php';
-var SERVICIO_MOVIL           =  URL_GLOBAL+'/api/rest/listar_servicio_movil_app.php';
-var SERVICIO_MOVIL_HISTORIAL =  URL_GLOBAL+'/api/rest/historial_servicio_movil_app.php';
-var SERVICIO_CONSULTA        =  URL_GLOBAL+'/api/rest/buscar_servicio_movil_app.php';
-var CERRAR_SERVICIO          =  URL_GLOBAL+'/api/rest/cerrar_servicio_movil_app.php';
-var GPS                      =  URL_GLOBAL+'/api/rest/gps_location_movil_app.php';
+var SERVICIO_AUTENTICACION          =  URL_GLOBAL+'/api/rest/login_movil_app.php';
+var SERVICIO_MOVIL                  =  URL_GLOBAL+'/api/rest/listar_servicio_movil_app.php';
+var SERVICIO_MOVIL_HISTORIAL        =  URL_GLOBAL+'/api/rest/historial_servicio_movil_app.php';
+var SERVICIO_MOVIL_SALDO_MOTORIZADO =  URL_GLOBAL+'/api/rest/saldo_motorizado_app.php';
+var SERVICIO_CONSULTA               =  URL_GLOBAL+'/api/rest/buscar_servicio_movil_app.php';
+var CERRAR_SERVICIO                 =  URL_GLOBAL+'/api/rest/cerrar_servicio_movil_app.php';
+var GPS                             =  URL_GLOBAL+'/api/rest/gps_location_movil_app.php';
 
 var $$ = Dom7;
 var userIsLoggedIn = false;
 var list_servicio;
 
-Pusher.logToConsole = false;
-var pusher = new Pusher('ee3dc23c8d4d2bb6cbd6', {
-  cluster: 'us2',
-  forceTLS: true
-});
+var socket = io(':3000');
+
+// Al iniciar 
+
+socket.on('/domicilios:localizar', (msg) =>{
+
+  console.log(msg);
+
+var pos = {
+  lat: "",
+  lng: ""
+};
 
 
-/* var watchID = navigator.geolocation.watchPosition(onSuccessrednder, onError, { timeout: 30000 });
+
+navigator.geolocation.getCurrentPosition( onSuccess, onError,{ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true } );
+
+      function onSuccess(position) {
+
+      pos.lat = position.coords.latitude;
+      pos.lng = position.coords.longitude;
+        console.log(position);
+      socket.emit('/domicilios:enviar_localizacion',  { latitud : pos.lat, longitud : pos.lng } );
+    };
+
+
+    function onError(error) {
+          alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+      };
+
+    });
+
+
+
+
+
+ var watchID = navigator.geolocation.watchPosition(onSuccessrednder, onError, { timeout: 3000 });
   
       var pos = {
           lat: "",
@@ -68,24 +99,8 @@ var pusher = new Pusher('ee3dc23c8d4d2bb6cbd6', {
 
           pos.lat = position.coords.latitude;
           pos.lng = position.coords.longitude;
-
-          myapp.request({
-
-            url : GPS,
-            method   : 'POST',
-            data : { "latitud" : pos.lat, "longitud" :  pos.lng },
-            dataType : 'json',
-            success  : function(data){
-                console.log(data);
-                    
-            },
-  
-            error : function (xhr, status) {
-                alert("Error solicitud de peticion");
-            }
-  
-        });
-
+          alert("nueva posicion"+ position);
+          socket.emit('/domicilios:enviar_localizacion',  { latitud : pos.lat, longitud : pos.lng } );
 
         };
 
@@ -98,17 +113,7 @@ var pusher = new Pusher('ee3dc23c8d4d2bb6cbd6', {
 
         
 
-navigator.geolocation.clearWatch(watchID); */
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////
-
-
+navigator.geolocation.clearWatch(watchID); 
 
 
 var userid = localStorage.getItem("iduser");
@@ -117,17 +122,15 @@ var tipous = Number(localStorage.getItem("tipouser"));
 
 var total = 0;
 
-var channel = pusher.subscribe('service'+docus);
-channel.bind('event-service', function(data){
+var socket = io('http://ec2-18-191-168-53.us-east-2.compute.amazonaws.com:3000');
+socket.on('/domicilios:asignar_servicio',  function() { 
     
+  
   cordova.plugins.notification.local.schedule({
     title: 'Evento de Aplicacion',
-    text: 'Tiene un servicio asignado, desea tomarlo?',
-    attachments: ['file://img/rb-leipzig.jpg'],
-    actions: [
-        { id: 'yes', title: 'Si' },
-        { id: 'no',  title: 'No' }
-    ]
+    text: 'Tiene un servicio asignado',
+    attachments: ['file://res/ready.png'],
+    foreground: true
 });
 
   Framework7.request({
@@ -143,21 +146,14 @@ channel.bind('event-service', function(data){
         
             for ( i = 0; i < arr_datos.length; i++ ) {
 
-              html+= '<div id="micarta" class="card text-center">';
-              html+= '<div class="card-header">';
-              html+= '  N. Servicio :  '+arr_datos[i].num_servicio+'';
+              html+= '<div id="micarta" class="card demo-card-header-pic">';
+              html+= '<div style="background-image:url(res/mapa.png)" class="card-header align-items-flex-end"></div>';
+              html+= '<div class="card-content card-content-padding">';
+              html+= '<p class="date">N. Servicio :  '+arr_datos[i].num_servicio+''  ;
+              html+= '<p> Origen : '+arr_datos[i].dir_proc+' </p>';
+              html+= '<p> Destino : '+arr_datos[i].dir_dest+' </p>';
               html+= '</div>';
-              html+= '<div class="card-body">';
-              html+= '<h5 class="card-title">Total : '+arr_datos[i].totalt+'</h5>';
-              html+= '<p class="card-text"> Origen : '+arr_datos[i].dir_proc+'</p>'+ '<br>' + 'Destino :' +arr_datos[i].dir_dest+ '';
-              
-              html+= '</div>';
-              html+= '<div class="card-footer text-muted">';
-         
-              html+= '<a href="/service/'+arr_datos[i].num_servicio+'/" class="btn btn-primary btn-lg active">Aceptar</a>';
-              
-              html+= '</div>';
-              
+              html+= '<div class="card-footer color-red"><a href="#" class="link"></a><a href="/service/'+arr_datos[i].num_servicio+'/" class="link color-red">Aceptar</a></div>';
               html+= '</div>';
 
 
@@ -200,21 +196,17 @@ $$(document).on('page:init','.page[data-name="menu"]',function(data) {
         
             for ( i = 0; i < arr_datos.length; i++ ) {
 
-              html+= '<div id="micarta" class="card text-center">';
-              html+= '<div class="card-header">';
-              html+= '  N. Servicio :  '+arr_datos[i].num_servicio+'';
+              html+= '<div id="micarta" class="card demo-card-header-pic">';
+              html+= '<div style="background-image:url(res/mapa.png)" class="card-header align-items-flex-end"></div>';
+              html+= '<div class="card-content card-content-padding">';
+              html+= '<p class="date">N. Servicio :  '+arr_datos[i].num_servicio+''  ;
+              html+= '<p> Origen : '+arr_datos[i].dir_proc+' </p>';
+              html+= '<p> Destino : '+arr_datos[i].dir_dest+' </p>';
               html+= '</div>';
-              html+= '<div class="card-body">';
-              html+= '<h5 class="card-title">Total : '+arr_datos[i].totalt+'</h5>';
-              html+= '<p class="card-text"> Origen : '+arr_datos[i].dir_proc+'</p>'+ '<br>' + 'Destino :' +arr_datos[i].dir_dest+ '';
-              
+              html+= '<div class="card-footer color-red"><a href="#" class="link"></a><a href="/service/'+arr_datos[i].num_servicio+'/" class="link color-red">Aceptar</a></div>';
               html+= '</div>';
-              html+= '<div class="card-footer text-muted">';
-         
-              html+= '<a href="/service/'+arr_datos[i].num_servicio+'/" class="btn btn-primary btn-lg active">Aceptar</a>';
-              html+= '</div>';
-              
-              html+= '</div>';
+
+
 
               total = total + parseInt(arr_datos[i].totalt);
 
@@ -233,7 +225,7 @@ $$(document).on('page:init','.page[data-name="menu"]',function(data) {
 
             var div = $("#micarta");
             div.animate({right: '200px', opacity: '0.4'}, "slow");
-            div.animate({left: '5px', opacity: '0.8'}, "slow");
+            div.animate({left: '3px', opacity: '0.8'}, "slow");
 
 
 }
@@ -272,7 +264,7 @@ Framework7.request({
             html+= '</div>';
             html+= '<div class="card-footer text-muted">';
        
-            html+= '<a href="/service/'+arr_datos[i].num_servicio+'/" class="btn btn-primary btn-lg active">Aceptar</a>';
+            /* html+= '<a href="/service/'+arr_datos[i].num_servicio+'/" class="col button button-small button-outline color-red">Aceptar</a>'; */
             html+= '</div>';
             
             html+= '</div>';
@@ -300,6 +292,33 @@ Framework7.request({
 }
 
 });
+
+Framework7.request({
+
+  url : SERVICIO_MOVIL_SALDO_MOTORIZADO,
+  method: 'GET',
+  dataType: 'json',
+  data : { "empleado" : localStorage.getItem("doc") },
+  success: function (data) {
+
+    for ( i = 0; i < data.length; i++ ) {
+  
+          total = total + parseInt(data[i].saldo_caja_menor);
+
+    }
+
+      $$('#saldo').html(total);
+
+    
+
+
+
+}
+
+});
+
+
+
 
 });
 
@@ -451,11 +470,7 @@ var myapp = new Framework7({
 
       path: '/service/:idservicio/',
       async(routeTo, routeFrom, resolve,reject){
-        var channel = pusher.subscribe('my-channel');
-        //myapp.preloader.show();
-          channel.unbind('my-event',function(){
-              console.log("describiendo servicio");
-          });
+        
          // alert("Ingreso aqui !!");
           var idservicio_ = routeTo.params.idservicio;
         //alert(idservicio_);
@@ -484,8 +499,8 @@ var myapp = new Framework7({
                   <div class="navbar">
                     <div class="navbar-inner sliding">
                       <div class="left">
-                        <a href="#" class="link back">
-                          <i class="icon icon-back"></i>
+                        <a href="#" class="link bac color-redk">
+                          <i class="icon icon-back color-red"></i>
                           <span class="ios-only">Back</span>
                         </a>
                       </div>
@@ -636,8 +651,8 @@ var myapp = new Framework7({
                         <!-- Toolbar-->
                         <div class="toolbar toolbar-bottom">
                           <div class="toolbar-inner">
-                            <a href="#" class="link">Cancelar</a>
-                            <a href="/takeservice/" id="aceptar" class="link">Aceptar</a>
+                            <a href="#" class="link color-red">Cancelar</a>
+                            <a href="/takeservice/" id="aceptar" class="link color-red">Aceptar</a>
                           </div>
                         </div>
                       
@@ -674,8 +689,8 @@ var myapp = new Framework7({
                   <div class="navbar">
                     <div class="navbar-inner sliding">
                       <div class="left">
-                        <a href="#" class="link back">
-                          <i class="icon icon-back"></i>
+                        <a href="#" class="link back color-red">
+                          <i class="icon icon-back color-red"></i>
                           <span class="ios-only">Back</span>
                         </a>
                       </div>
@@ -826,8 +841,8 @@ var myapp = new Framework7({
                         <!-- Toolbar-->
                         <div class="toolbar toolbar-bottom">
                           <div class="toolbar-inner">
-                            <a href="#" class="link">Cancelar</a>
-                            <a href="/takeservice/" id="aceptar" class="link">Aceptar</a>
+                            <a href="#" class="col button button-small color-red">Cancelar</a>
+                            <a href="/takeservice/" id="aceptar" class="col button button-small color-red">Aceptar</a>
                           </div>
                         </div>
                       
@@ -913,13 +928,12 @@ function onSuccess(result) {
 
               if ( info.codigo == 1 ) {
 
-                var channel = pusher.subscribe('my-authorization');
-                channel.bind('my-event', function(data){
+               
                     if ( data.codigo = 1 )
                     informativo.open(true);
                     $$("#aceptar").toggleClass('link');
                     $$("#aceptar").removeClass('link disabled');
-                });
+              
                 
 
               }
@@ -975,8 +989,7 @@ cordova.plugins.barcodeScanner.scan(onSuccess, onError, options);
       path : '/update',
       async(routeTo,routeFrom,resolve,reject){
         cargando.open(true);
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function(data){
+        
           var userid = localStorage.getItem("iduser");
           console.log(userid);
           
@@ -1008,7 +1021,7 @@ cordova.plugins.barcodeScanner.scan(onSuccess, onError, options);
           
           });
             
-          });
+        
 
       }
 
@@ -1018,8 +1031,7 @@ cordova.plugins.barcodeScanner.scan(onSuccess, onError, options);
 
       path : '/salir',
       async(routeTo,routeFrom,resolve,reject){
-          pusher.disconnect();
-          
+                   
           window.localStorage.clear();
               resolve({
 
@@ -1085,6 +1097,7 @@ cordova.plugins.barcodeScanner.scan(onSuccess, onError, options);
     {
 
       path : '/cerrarservicio/',
+
       async(routeTo,routeFrom,resolve,reject){
 
         var usuario             = window.localStorage.getItem("iduser");
@@ -1134,9 +1147,6 @@ cordova.plugins.barcodeScanner.scan(onSuccess, onError, options);
         var id_num_servicio     = $$("#id_num_servicio").val();
         var descripcion         = $$("#descripcion").val();
         var estado_servicio     = $$("#estado_servicio").val();
-
-
-        console.log(usuario);
 
         myapp.request({
 
@@ -1411,47 +1421,7 @@ var app = {
 
         // enviando mi ubicacion al inciar aplicacion
 
-        var pos = {
-          lat: "",
-          lng: ""
-        };
-        
-        navigator.geolocation.getCurrentPosition( onSuccess, onError,{ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true } );
-
-              function onSuccess(position) {
-
-              pos.lat = position.coords.latitude;
-              pos.lng = position.coords.longitude;
-
-              myapp.request({
-
-                url : GPS,
-                method   : 'POST',
-                data : { "latitud" : pos.lat, "longitud" :  pos.lng },
-                dataType : 'json',
-                success  : function(data){
-                    console.log(data);
-                        
-                },
       
-                error : function (xhr, status) {
-                    alert("Error solicitud de peticion");
-                }
-      
-            });
-
-
-            };
- 
-     // onError Callback receives a PositionError object
-     //
-              function onError(error) {
-                  alert('code: '    + error.code    + '\n' +
-                        'message: ' + error.message + '\n');
-              };
-
-
-
 
      }
   },

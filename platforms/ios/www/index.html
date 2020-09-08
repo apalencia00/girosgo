@@ -20,6 +20,21 @@
 
 </head>
 
+<style>
+
+
+.demo-card-header-pic .card-header {
+  height: 40vw;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.demo-card-header-pic .card-content-padding .date{
+  color: #8e8e93;
+}
+
+</style>
+
 
 
 <body>
@@ -32,7 +47,7 @@
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar"></div>
     <!-- Left panel with cover effect-->
-    <div class="panel panel-left panel-cover theme-dark">
+    <div class="panel panel-left panel-cover">
       <div class="view">
         <div class="page">
           <div class="navbar">
@@ -42,10 +57,10 @@
             </div>
           </div>
           <div class="page-content">
-              <div class="block"><a href="/settings/" class="panel-close" >Conexiones</a></div>
-              <div class="block"><a href="/base/" class="panel-close" >Base Pendiente</a></div>
-              <div class="block"><a href="/ahorro/" class="panel-close" >Ahorros</a></div>
-              <div class="block"><a href="/salir/" class="panel-close" >Cerrar Sesion</a></div>
+              <div class="block color-red"><a href="/settings/" class="panel-close" ><strong>Conexiones</strong></a></div>
+              <div class="block color-red"><a href="/base/" class="panel-close" ><strong>Base Pendiente</strong></a></div>
+              <div class="block color-red"><a href="/ahorro/" class="panel-close" ><strong>Ahorros</strong></a></div>
+              <div class="block color-red"><a href="/salir/" class="panel-close" ><strong>Cerrar Sesion</strong></a></div>
             </div>
         
         </div>
@@ -65,35 +80,44 @@
                   <img src="res/baseline_menu_black_18dp.png" />
               </a>
             </div>
-            <div class="title sliding">ServiceApp</div>
+            <div class="title sliding"></div>
            
           </div>
         </div>
      
-
+          <br>
+          <br>
+          <br>
                            
               <div class="list no-hairlines-md">
                 <div>
-                  <img src="res/DOMICLIO EXPRES-01.png" class="center"/>
+                  <img src="res/ready.png" class="center"/>
                 </div>
+
+                <br>
+                <br>
                 <ul>
-                  <li>
-                    <div class="item-content item-input">
-                      <div class="item-inner">
-                        <div class="item-title item-label">Usuario</div>
-                        <div class="item-input-wrap">
-                          <input type="text" id="username" value="12309" placeholder="Ingrese Usuario"/>
-                        </div>
+                  <li class="item-content item-input">
+                    <div class="item-media">
+                      <i class="icon demo-list-icon"></i>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label color-red">Usuario</div>
+                      <div class="item-input-wrap color-red">
+                        <input type="text" id="username" value="" placeholder="Ingrese su Usuario">
+                        <span class="input-clear-button color-red"></span>
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="item-content item-input">
-                      <div class="item-inner">
-                        <div class="item-title item-label">Contraseña</div>
-                        <div class="item-input-wrap">
-                          <input type="password" id="password" value="12309" placeholder="Ingrese Contraseña"/>
-                        </div>
+                  <li class="item-content item-input">
+                    <div class="item-media">
+                      <i class="icon demo-list-icon"></i>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title item-floating-label color-red">Clave</div>
+                      <div class="item-input-wrap color-red">
+                        <input type="text" id="password" value="" placeholder="Ingrese su Contraseña">
+                        <span class="input-clear-button color-red"></span>
                       </div>
                     </div>
                   </li>
@@ -102,15 +126,20 @@
                 </ul>
                 
               </div>
-             
+
+              <br>
+
               <div class="block block-strong">
        
-                <p class="row">
-                  <a href="/login/" class="item-link col button button-outline">Aceptar</a>
+                <div class="row">
+                  <a href="/login/" class="item-link col button color-red">Ingresar</a>
+                  
                  
-                </p>
+                </div>
                 
-                <div class="block-footer">Todos Los Derechos Reservados <br>@2018 - 2019 - Andres F. Palencia</div>
+                
+                
+                <div class="block-footer"><center>Todos Los Derechos Reservados <br>@2018 - 2019 - Andres F. Palencia</center></div>
           
               </div>
              
@@ -129,21 +158,17 @@
 
   
   </div>
-
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqNsWRsCY97sIMrAzW6gt-1j1xI72L9Rg">
-</script>
        
   <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
   
   <script src="cordova.js"></script>
 
+  <script src="js/socket.io.js" ></script>
+
 
   <!-- Framework7 library -->
   <script src="js/jquery.js" ></script>
-  
-  
-  
+
   <script src="js/framework7.bundle.min.js"></script>
   
   <script src="js/pusher.js" ></script>
@@ -154,6 +179,11 @@
 
 
   <!-- Your custom app scripts -->
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5Y9ntrmD_NPPatiUbRsCxz0gpa55Oo4M">
+  </script>
+
   
 
   <script>

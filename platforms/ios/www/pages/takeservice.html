@@ -3,8 +3,8 @@
     <div class="navbar">
       <div class="navbar-inner sliding">
         <div class="left">
-          <a href="#" class="link back">
-            <i class="icon icon-back"></i>
+          <a href="#" class="link back color-red">
+            <i class="icon icon-back color-red"></i>
             <span class="ios-only">Back</span>
           </a>
         </div>
@@ -13,28 +13,37 @@
     </div>
     <div class="page-content">
      <!--  <div class="block-title">Respuesta de Servicio</div> -->
-      <div class="list no-hairlines-md">
+     
+      <div class="list no-hairlines-md"> 
+
+        <br>
+        <br>
+        <br>
+        <br>
         <ul>
-          <li>
-            <div class="item-content item-input">
-              <div class="item-inner">
-                <div class="item-title item-label">                                                                                                                </div>
-                <div class="item-input-wrap">
-                  <input type="text" id="id_num_servicio" placeholder="# de servicio" value="{{data}}" />
-                </div>
+          
+          <li class="item-content item-input">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-floating-label color-red">Numero de Servicio</div>
+              <div class="item-input-wrap color-red">
+                <input id="id_num_servicio" disabled placeholder="Numero de Servicio" value="{{data}}" />
+                
               </div>
             </div>
           </li>
-          <li>
-           
-          </li>
-          <li class="align-top">
-            <div class="item-content item-input">
-              <div class="item-inner">
-                <div class="item-title item-label">Descripcion</div>
-                <div class="item-input-wrap">
-                  <textarea id="descripcion" placeholder="Observacion del Servicio"></textarea>
-                </div>
+
+          <li class="item-content item-input">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-floating-label color-red">Descripcion</div>
+              <div class="item-input-wrap color-red">
+                <textarea id="descripcion" placeholder="Observacion del Servicio"></textarea>
+                <span class="input-clear-button color-red"></span>
               </div>
             </div>
           </li>
@@ -42,9 +51,9 @@
           <li>
             <div class="item-content item-input">
               <div class="item-inner">
-                <div class="item-title item-label">Estado Sin Servicio</div>
+                <div class="item-title item-label  color-red">Estado Sin Servicio</div>
                 <div class="item-input-wrap">
-                  <select id="estado_servicio" > 
+                  <select class="form-control color-red" id="estado_servicio" > 
                     
                     <option value="N/A" >Seleccione</option>
                 
@@ -52,6 +61,7 @@
                     
                     
                   </select>
+                  <span class="input-clear-button color-red"></span>
                 </div>
               </div>
             </div>
@@ -62,12 +72,14 @@
                   
         </ul>
       </div>
-     
-
-      <div class="toolbar toolbar-bottom">
+     <br>
+     <br>
+     <br>
+   
+      <div class="toolbar toolbar-bottom color-red">
         <div class="toolbar-inner">
-          <a href="#" class="link">Cancelar</a>
-          <a href="/cerrarservicio/" id="aceptar" class="link">Aceptar</a>
+          <a href="#" class="link color-red">Cancelar</a>
+          <a href="/cerrarservicio/" id="aceptar" class="link color-red">Aceptar</a>
         </div>
       </div>
     

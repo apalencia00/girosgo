@@ -1,11 +1,10 @@
 
-// Recursos a Conexiones -- Servicios REST
 
 var conexion ={
 
-  hostconexion: '',
+  hostconexion: 'http://ec2-18-191-168-53.us-east-2.compute.amazonaws.com',
   portconexion: '80',
-  rootconexion : '',
+  rootconexion : 'domiready',
   timeconexion: '3600'
 
 }
@@ -28,13 +27,13 @@ if ( ip != null && puerto != null ) {
   x.portconexion = puerto;
   x.rootconexion = '';
   x.timeconexion = '3600';
-  URL_GLOBAL = x.hostconexion+':'+x.portconexion+'/'+x.rootconexion;
+  URL_GLOBAL = x.hostconexion;
   
 } 
 else {
   console.log("2");
   console.log(conexion.hostconexion);
-  URL_GLOBAL = conexion.hostconexion+':'+conexion.portconexion+'/'+conexion.rootconexion;
+  URL_GLOBAL = conexion.hostconexion;
   //window.location.reload();
 
 }
@@ -51,7 +50,7 @@ var $$ = Dom7;
 var userIsLoggedIn = false;
 var list_servicio;
 
-var socket = io(':3000');
+var socket = io('http://ec2-18-191-168-53.us-east-2.compute.amazonaws.com:3000');
 
 // Al iniciar 
 
@@ -88,7 +87,7 @@ navigator.geolocation.getCurrentPosition( onSuccess, onError,{ maximumAge: 3000,
 
 
 
- var watchID = navigator.geolocation.watchPosition(onSuccessrednder, onError, { timeout: 3000 });
+ var watchID = navigator.geolocation.watchPosition(onSuccessrednder, onError, { timeout: 60000 });
   
       var pos = {
           lat: "",
@@ -380,6 +379,8 @@ var myapp = new Framework7({
               var username = $$('#username').val();
               var password = $$('#password').val(); 
 
+              alert(SERVICIO_AUTENTICACION);
+
               myapp.preloader.show();
 
             setTimeout(function () {
@@ -399,7 +400,7 @@ var myapp = new Framework7({
                     
                     userIsLoggedIn = true;
                     localStorage.setItem("doc",info[0].usuadoc);
-                    console.log("!!!!!!!!!!!!!!!!!!!"+info[0].usuadoc);
+                    alert("!!!!!!!!!!!!!!!!!!!"+info[0].usuadoc);
                     localStorage.setItem("iduser",info[0].id_usurio);
                     console.log(info[0].usuanomb_completo);
                     localStorage.setItem("nombs", info[0].usuanomb_completo);
